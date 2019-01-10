@@ -15,16 +15,19 @@
       </ul>
     
       <div *ngIf="loggedIn()" class="dropdown" dropdown>
-          <a class="dropdown-toggle text-light" dropdownToggle>
-            Welcome {{authService.decodedToken?.unique_name | titlecase}}
-          </a>
+        <span class="mr-1">
+          <img src="{{photoUrl}}" alt="">
+        </span>
+        <a class="dropdown-toggle text-light" dropdownToggle>
+          Welcome {{authService.decodedToken?.unique_name | titlecase}}
+        </a>
         
-          <div class="dropdown-menu mt-3" *dropdownMenu>
-            <a class="dropdown-item" [routerLink]="['/member/edit']" ><i class="fa fa-user"></i> Edit Profile</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i>Logout</a>
-          </div>
+        <div class="dropdown-menu mt-3" *dropdownMenu>
+          <a class="dropdown-item" [routerLink]="['/member/edit']" ><i class="fa fa-user"></i> Edit Profile</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i>Logout</a>
         </div>
+      </div>
     
       <form *ngIf="!loggedIn()" #loginform="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
         <input class="form-control mr-sm-2" type="text" name="username" placeholder="username" required [(ngModel)]="model.username">
