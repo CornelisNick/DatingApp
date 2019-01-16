@@ -1,68 +1,99 @@
-<div class="container">
- 
-  <div class="navbar navbar-default">
-      <div class="navbar-header">
-          <a class="navbar-brand" href>Dépôt de bulletins</a>
-      </div>
-  </div>
+<div class="container position: absolute; width: 100%; left: 50%; top: 50%; transform: translate(-50%, -50%);">
+    
+    <div class="navbar navbar-default">
+        <span>
+            <strong>Dépôt de bulletins</strong>
+        </span>
+    </div>
 
-  <div style="border: 2px black dotted">
+    <div style="background: darkgrey; margin-bottom: 20px; padding: 30px; color: white;">
+    
+        <div>
+            Période de paiment
+        </div><br/>
 
-      <div style="float: left; padding: 20px; margin: 20px auto 0px auto; width: 100%;">
+        <span style="float: left; margin: 10px;">
+            Du
+        </span>
+        
+        <label for="fromDate" class="btn" style="background: white; width: 200px;"> 
+            <span style="transform: scale(1.5); float: left; margin-top: 3px;" class="fa fa-calendar"></span>
+            <span style="float: right;">jj/mm/aaaa</span>
+        </label>
+        <input class="form-control" placeholder="jj/mm/aaaa" id="fromDate" type="text" bsDatepicker style="height: 0px; visibility: hidden;">
+        
+        <span style="float: left; margin: 10px;">
+            au
+        </span>
 
-          <div ng2FileDrop
-               [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
-               (fileOver)="fileOverBase($event)"
-               [uploader]="uploader"
-               class="card bg-faded p-3 text-center mb-3 my-drop-zone">
+        <input class="form-control" placeholder="jj/mm/aaaa" id="toDate" type="text" bsDatepicker style="width: 200px; float: left;">
 
-               Glissez déposez vos fichiers <br/> OU
+        <div style="clear: both;"></div>
 
-            <input type="file" ng2FileSelect [uploader]="uploader" accept=".pdf" multiple style="margin: 0px auto; width: 107px;">
+    </div>
+    
+    <div style="border: 1px black inset;">
+    
+        <div style="margin: 20px;">
+        
+            <div ng2FileDrop
+                [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+                (fileOver)="fileOverBase($event)"
+                [uploader]="uploader"
+                class="card bg-faded p-3 text-center mb-3 my-drop-zone"
+                style="padding: 50px!important;">
 
-          </div>
+                Glissez déposez vos fichiers <br/> OU
 
-      </div>
+                <label for="filebtn" class="btn" style="background:darkgrey; margin: 0 auto;"> 
+                    <span style="transform: scale(2); margin-top: 15px; float: left; margin-right: 15px;" class="fa fa-file"></span>
+                    Importez un fichier <br/> depuis le Bureau
+                </label>
+                <input id="filebtn" type="file" ng2FileSelect [uploader]="uploader" accept=".pdf" multiple style="height: 0px; visibility: hidden;">
 
-      <div style="margin-bottom: 40px; width: 100%; margin: 0px auto; padding: 20px;">
-
-          <p style="float: right;">{{ uploader?.queue?.length }} fichiers importés</p>
-          <div style="clear: both;"></div>
-          <div *ngFor="let item of uploader.queue">
-            <div style="border: 1px solid black; width: 100px; text-align: center; padding-top: 20px; float: left; margin: 0px 20px;">
-              <span style="transform: scale(3);" class="fa fa-file"></span>
-              <p style="overflow: auto; margin-top: 20px;">{{ item?.file?.name }}</p>
-              <!--
-              <span *ngIf="uploader.options.isHTML5" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</span>
-              <button type="button" class="btn btn-danger btn-xs" (click)="item.remove()">
-                <span class="glyphicon"></span> X
-              </button>-->
             </div>
-          </div>
+        </div>
 
-        <div><!--
-          <div>
-              Queue progress:
-              <div class="progress mb-4">
-                  <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
-              </div>
-          </div>
-          <button type="button" class="btn btn-success btn-s"
-                  (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
-              <span class="fa fa-upload"></span> Upload
-          </button>
-          <button type="button" class="btn btn-warning btn-s"
-                  (click)="uploader.cancelAll()" [disabled]="!uploader.isUploading">
-              <span class="fa fa-ban"></span> Cancel
-          </button>
-          <button type="button" class="btn btn-danger btn-s"
-                  (click)="uploader.clearQueue()" [disabled]="!uploader.queue.length">
-              <span class="fa fa-trash"></span> Remove
-          </button>
-      </div>-->
+        <div>
 
-  </div>
+            <p style="float: right; padding-right: 20px;">{{ uploader?.queue?.length }} fichiers importés</p>
+            <div style="clear: both;"></div>
+            <div *ngFor="let item of uploader.queue">
+                <div style="border: 1px solid black; text-align: center; padding-top: 20px; margin: 15px 20px; float: left; width: 10vw; height: 150px;">
+                    <button type="button" class="btn btn-danger btn-xs" (click)="item.remove()" style="float: right; margin: -40px -20px; border-radius: 20px;">
+                        <span class="glyphicon"></span> X
+                    </button>
+                <span style="transform: scale(3); width: 100%;" class="fa fa-file"></span>
+                <p style="overflow: auto; margin-top: 20px;">{{ item?.file?.name }}</p>
+                
+                <!--<span *ngIf="uploader.options.isHTML5" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</span>-->
+                </div>
+            </div>
+            <div style="clear: both;"></div>
 
-  </div>
+        </div>
 
+    </div>
+    
+    <div style="text-align: center; margin-top: 30px; margin-bottom: 50px;" *ngIf="uploader.getNotUploadedItems().length">
+       
+        <!--div>
+            Queue progress:
+            <div class="progress mb-4">
+                <div class="progress-bar" role="progressbar"></div>
+            </div>
+        </div-->
+
+        <button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+            <span class="fa fa-upload"></span> Déposer les bulletins
+        </button>
+    
+        <!--button type="button" class="btn btn-warning btn-s" (click)="uploader.cancelAll()" [disabled]="!uploader.isUploading">
+            <span class="fa fa-ban"></span> Cancel
+        </button>
+        <button-- type="button" class="btn btn-danger btn-s" (click)="uploader.clearQueue()" [disabled]="!uploader.queue.length">
+            <span class="fa fa-trash"></span> Remove
+        </button-->
+
+    </div>
 </div>

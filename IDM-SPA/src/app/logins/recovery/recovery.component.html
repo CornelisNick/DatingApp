@@ -1,0 +1,99 @@
+<div class="left">
+
+  <img src="../../assets/CecurityLogo.svg" als="CecurityLogo" class="logo"/>
+
+  <section>
+
+    <div class="title">
+      Cecur eRH <br/> Espace employeur
+    </div>
+
+    <div class="subTitle">
+      Connectez-vous
+    </div>
+
+    <form #RecoveryForm="ngForm" (ngSubmit)="send()"> 
+
+      <div>
+
+        <label for="name">
+
+          Nom
+        
+        </label>
+
+        <br/>
+
+        <input id="name" type="text" name="name" required [(ngModel)]="model.name" placeholder="Paul"/>
+      
+      </div>
+
+      <br/> 
+
+      <div>
+
+        <label for="firstname">
+
+          Prénom
+        
+        </label>
+
+        <br/>
+
+        <input id="firstname" type="text" name="firstname" required [(ngModel)]="model.firstname" placeholder="Dupont"/>
+      
+      </div>  
+
+      <br/> 
+
+      <div>
+
+        <label for="mail">
+
+          Email
+        
+        </label>
+
+        <br/>
+
+        <input id="mail" type="text" name="mail" required [(ngModel)]="model.mail" placeholder="exemple@gmail.com"/>
+      
+      </div>
+        
+      <div style="clear: both; margin-bottom: 60px;"></div>
+
+      <div style="text-align: center;">
+          
+        <button class="btnSend" [disabled]="!RecoveryForm.valid" type="submit" [routerLink]="['/login/reset']">Valider</button>
+      
+      </div>
+
+    </form>
+
+  </section>
+
+  <footer>
+
+    <hr />
+
+    <div class="contact">
+      
+      <a href="#" [routerLink]="['/login/contact']">Nous contacter</a>
+      
+    </div>
+
+    <div class="info">
+      
+      <p>Politique des données personelles</p>
+
+    </div>
+
+  </footer>
+  
+</div>
+
+<div class="right">
+  
+    <img src="../../assets/BackgroundLogin.svg" alt="Background" class="background"/>
+  
+  </div>

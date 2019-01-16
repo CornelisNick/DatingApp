@@ -11,11 +11,17 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { ListsResolver } from './_resolvers/lists.resolver';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './logins/login/login.component';
 import { DropzoneComponent } from './dropzone/dropzone.component';
+import { RecoveryComponent } from './logins/recovery/recovery.component';
+import { ResetComponent } from './logins/reset/reset.component';
+import { ContactComponent } from './logins/contact/contact.component';
 
 export const appRoutes: Routes = [
     { path: '', component: LoginComponent},
+    { path: 'login/recovery', component: RecoveryComponent },
+    { path: 'login/reset', component: ResetComponent },
+    { path: 'login/contact', component: ContactComponent },
     {
         path: '',
         runGuardsAndResolvers: 'always',

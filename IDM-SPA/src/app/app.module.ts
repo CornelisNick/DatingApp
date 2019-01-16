@@ -32,8 +32,11 @@ import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { ListsResolver } from './_resolvers/lists.resolver';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './logins/login/login.component';
 import { DropzoneComponent } from './dropzone/dropzone.component';
+import { RecoveryComponent } from './logins/recovery/recovery.component';
+import { ResetComponent } from './logins/reset/reset.component';
+import { ContactComponent } from './logins/contact/contact.component';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -54,6 +57,9 @@ export function tokenGetter() {
       PhotoEditorComponent,
       TimeAgoPipe,
       LoginComponent,
+      RecoveryComponent,
+      ResetComponent,
+      ContactComponent,
       DropzoneComponent
    ],
    imports: [

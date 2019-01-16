@@ -3,6 +3,7 @@ import { FileUploader } from 'ng2-file-upload';
 import { Photo } from 'src/app/_models/photo';
 import { AuthService } from '../_services/auth.service';
 import { environment } from 'src/environments/environment';
+import { toInt } from 'ngx-bootstrap/chronos/utils/type-checks';
 
 @Component({
   selector: 'app-dropzone',
@@ -59,5 +60,4 @@ export class DropzoneComponent implements OnInit {
   fileOverBase(e: any): void {
     this.hasBaseDropZoneOver = e;
   }
-
 }

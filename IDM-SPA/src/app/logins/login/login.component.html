@@ -1,0 +1,112 @@
+<div class="left">
+
+    <img src="../../assets/CecurityLogo.svg" als="CecurityLogo" class="logo"/>
+
+    <section>
+
+      <div class="title">
+        Cecur eRH <br/> Espace employeur
+      </div>
+    
+      <div class="subTitle">
+        Connectez-vous
+      </div>
+    
+      <form #loginForm="ngForm" (ngSubmit)="login()">
+    
+        <div>
+    
+          <label for="username">
+
+            Identifiant
+
+          </label>
+
+          <br/>
+
+          <input id="username" class="username" type="text" name="username" required [(ngModel)]="model.username" placeholder="Prénom.nom"/>
+          
+        </div>
+
+        <br/>
+
+        <div>
+    
+          <label for="password">
+
+            Mot de passe
+
+          </label>
+
+          <br/>
+
+          <div class="passwordContainer">
+
+            <input id="password" class="password" type="{{hide ? 'password' : 'text' }}" name="password" required [(ngModel)]="model.password" placeholder="Mot de passe"/>
+            
+            <button class="btnPassword" (click)="changePasswordType()">
+
+              <i *ngIf="!hide" class="fa fa-fw fa-eye"></i>
+              <i *ngIf="hide" class="fa fa-fw fa-eye-slash"></i>
+
+            </button>
+
+          </div>
+          
+          <div class="checkbox" style="clear: both;">
+
+            <input  type="checkbox"/>
+
+            <span style="margin-left: 10px;">Se souvenir de moi</span>
+
+          </div>
+
+          <div class="pwForgot">
+          
+            <a href="#" [routerLink]="['/login/recovery']">
+
+              <u>Mot de passe oublié ?</u>
+
+            </a>
+
+          </div>
+
+        </div>
+        
+        <div style="clear: both; margin-bottom: 60px;"></div>
+
+        <div style="text-align: center;">
+          
+          <button class="btnConnect" [disabled]="!loginForm.valid" type="submit">Se connecter</button>
+        
+        </div>
+    
+      </form>
+    
+    </section>
+
+    <footer>
+
+      <hr />
+
+      <div class="contact">
+        
+        <a href="#" [routerLink]="['/login/contact']">Nous contacter</a>
+
+      </div>
+
+      <div class="info">
+        
+        <p>Politique des données personelles</p>
+
+      </div>
+
+    </footer>
+
+</div>
+
+<div class="right">
+  
+  <img src="../../assets/BackgroundLogin.svg" alt="Background" class="background"/>
+
+</div>

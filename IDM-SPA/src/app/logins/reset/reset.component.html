@@ -1,0 +1,148 @@
+<div class="left">
+
+  <img src="../../assets/CecurityLogo.svg" als="CecurityLogo" class="logo"/>
+
+  <section>
+
+    <div class="title">
+      Cecur eRH <br/> Espace employeur
+    </div>
+
+    <div class="subTitle">
+      Réinitialiser le mot de passe
+    </div>
+
+    <form #ResetForm="ngForm" (ngSubmit)="send()">
+      
+      <div>
+        
+        <label for="password">
+          
+          Nouveau mot de passe
+        
+        </label>
+        
+        <br/>
+
+        <div class="passwordContainer">
+        
+          <input id="password" class="password" type="{{hide ? 'password' : 'text' }}" name="password" required [(ngModel)]="model.password" placeholder="Nouveau mot de passe" (input)="testStrength()"/>
+          
+          <button class="btnPassword" (click)="changePasswordType()">
+          
+            <i *ngIf="!hide" class="fa fa-fw fa-eye"></i>
+            <i *ngIf="hide" class="fa fa-fw fa-eye-slash"></i>
+          
+          </button>
+        
+        </div>
+
+        <div style="margin-bottom: 8px; float: left;">
+
+          <div [ngSwitch]="strenght">
+            <div *ngSwitchCase="0">
+              <div class="status grey"></div>
+              <div class="status grey"></div>
+              <div class="status grey"></div>
+              <div class="status grey"></div>
+              <i class="fa fa-info-circle" style="clear: both; float: right; margin: 0px 5px 5px 5px;"></i>
+              <p style="float: right;">Très faible</p>
+            </div>
+            <div *ngSwitchCase="1">
+              <div class="status red"></div>
+              <div class="status grey"></div>
+              <div class="status grey"></div>
+              <div class="status grey"></div>
+              <i class="fa fa-info-circle" style="clear: both; float: right; margin: 0px 5px 5px 5px;"></i>
+              <p style="float: right;">Faible</p>
+            </div>
+            <div *ngSwitchCase="2">
+              <div class="status yellow"></div>
+              <div class="status yellow"></div>
+              <div class="status grey"></div>
+              <div class="status grey"></div>
+              <i class="fa fa-info-circle" style="clear: both; float: right; margin: 0px 5px 5px 5px;"></i>
+              <p style="float: right;">Moyen</p>
+            </div>
+            <div *ngSwitchCase="3">
+              <div class="status green"></div>
+              <div class="status green"></div>
+              <div class="status green"></div>
+              <div class="status grey"></div>
+              <i class="fa fa-info-circle" style="clear: both; float: right; margin: 0px 5px 5px 5px;"></i>
+              <p style="float: right;">Bien</p>
+            </div>
+            <div *ngSwitchCase="4">
+              <div class="status darkGreen"></div>
+              <div class="status darkGreen"></div>
+              <div class="status darkGreen"></div>
+              <div class="status darkGreen"></div>
+              <i class="fa fa-info-circle" style="clear: both; float: right; margin: 0px 5px 5px 5px;"></i>
+              <p style="float: right;">Très bien!</p>
+            </div>
+          </div>
+
+          
+
+        </div>
+
+        <label for="repeat" style="clear: both; float: left;">
+          
+          Confirmet le mot de passe
+        
+        </label>
+        
+        <br/>
+
+        <div class="passwordContainer">
+        
+          <input id="repeat" class="password" type="{{hide ? 'password' : 'text' }}" name="repeat" required [(ngModel)]="model.repeat" placeholder="Répéter le mot de passe"/>
+          
+          <button class="btnPassword" (click)="changePasswordType()">
+          
+            <i *ngIf="!hide" class="fa fa-fw fa-eye"></i>
+            <i *ngIf="hide" class="fa fa-fw fa-eye-slash"></i>
+          
+          </button>
+        
+        </div>
+      
+      </div>
+
+      <div style="clear: both; margin-bottom: 60px;"></div>
+      
+      <div style="text-align: center;">
+        
+        <button class="btnSend" [disabled]="!ResetForm.valid" type="submit">Réinitialiser</button>
+        
+      </div>
+
+    </form>
+
+  </section>
+
+  <footer>
+
+    <hr />
+
+    <div class="contact">
+      
+      <a href="#" [routerLink]="['/login/contact']">Nous contacter</a>
+
+    </div>
+
+    <div class="info">
+      
+      <p>Politique des données personelles</p>
+
+    </div>
+
+  </footer>
+  
+</div>
+
+<div class="right">
+  
+    <img src="../../assets/BackgroundLogin.svg" alt="Background" class="background"/>
+  
+  </div>

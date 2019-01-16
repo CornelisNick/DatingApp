@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../_services/auth.service';
-import { AlertifyService } from '../_services/alertify.service';
+import { AuthService } from '../../_services/auth.service';
+import { AlertifyService } from '../../_services/alertify.service';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 
@@ -9,13 +9,17 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   model: any = {};
+  hide: boolean;
+  remember: boolean;
 
   constructor(public authService: AuthService, private alertify: AlertifyService, private router: Router) { }
 
   ngOnInit() {
+    this.hide = true;
   }
 
   login() {
@@ -26,6 +30,10 @@ export class LoginComponent implements OnInit {
     }, () => {
       this.router.navigate(['/home']);
     });
+  }
+
+  changePasswordType() {
+    this.hide = !this.hide;
   }
 
 }

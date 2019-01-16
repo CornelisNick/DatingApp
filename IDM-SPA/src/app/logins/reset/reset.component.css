@@ -1,0 +1,180 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700);
+
+body {
+    font-family: Open Sans!important;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    
+    color: #6c6c6c;
+}
+
+.left {
+
+}
+
+.right {
+
+}
+
+@media screen and (max-width:1000px) {
+
+    .right {
+        display: none;
+    }
+}
+
+.background {
+    clip-path: polygon(32% 0, 100% 0%, 100% 100%, 18% 100%);
+    float: right;
+}
+
+.logo {
+    position: absolute;
+    left: 88px;
+    top: 78px;
+}
+
+.title {
+    position: absolute;
+    left: 88px;
+    top: 230px;
+    font-weight: 900;
+    font-size: 35px;
+}
+
+.subTitle {
+    position: absolute;
+    left: 88px;
+    top: 360px;
+    
+    font-weight: bold;
+    font-size: 24px;
+    
+    color: #E45612;
+}
+
+form {
+    position: absolute;
+    left: 90px;
+    top: 440px;
+    
+    font-weight: 600;
+    font-size: 14px;
+}
+
+label {
+    color: #6C6C6C;
+    font-weight: normal;
+    font-size: 13px
+}
+
+input[type="text"], [type="password"] {
+    width: 440px;
+    height: 32px;
+    padding-left: 30px;
+    box-sizing: content-box!important;
+    background-clip: padding-box;
+}
+
+.passwordContainer {
+    display: flex;
+    border: 2px inset;
+    padding: 2px;
+    width: 476px;
+    margin-bottom: 15px;
+}
+
+div > .password {
+    border: none;
+    width: 390px;
+}
+
+.btnPassword {
+    border: none;
+    background: none;
+}
+
+.password {
+    background: url(../../../assets/IconPassword.svg) no-repeat 9px 11px;
+}
+
+.btnSend {
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    
+    width: 192px;
+    height: 32px;
+
+    color: #F7F7F7;
+
+    mix-blend-mode: normal;
+
+    background: #E06B1F;
+
+    margin: 0 auto;
+
+    border: none;
+}
+
+a {
+    color: #6c6c6c;
+}
+
+footer {
+    font-size: 13px;
+    color: #646464;
+
+    text-transform: uppercase;
+}
+
+hr {
+    position: absolute;
+    width: 100%;
+    top: 960px;
+
+    border: 1px solid;
+}
+
+.contact {
+    position: absolute;
+    left: 80px;
+    top: 990px;
+}
+
+.info {
+    position: absolute;
+    left: 390px;
+    top: 990px;
+    height: 18px;
+}
+
+.status {
+    height: 10px; 
+    width: 103px; 
+    float: left; 
+    margin: 8px;
+}
+
+.grey {
+    background-color: #ECECEC; 
+}
+
+.red {
+    background-color: #D83434; 
+}
+
+.yellow {
+    background-color: #E0BE0D; 
+}
+
+.green {
+    background-color: #8BCE62; 
+}
+
+.darkGreen {
+    background-color: #068903; 
+}
